@@ -2,6 +2,7 @@
 @import "../bower_components/normalize-css/normalize.css";
 @import "../bower_components/typeplate-starter-kit/css/typeplate.css";
 
+
 /**
  * BOX-SIZING
  */
@@ -95,3 +96,42 @@ img {
 /**
  * YOUR CODE HERE
  */
+
+.bgImageContainer {
+    height: 150%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition-property: opacity !important;
+    transition-timing-function: ease;
+    transition-duration: .25s;
+}
+.parallax {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+}
+.parallax-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    will-change: transform;
+}
+
+/** extra */
+h1 {
+    max-width: 15ch;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 1.25em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rebeccapurple;
+}
