@@ -1,0 +1,97 @@
+
+@import "../bower_components/normalize-css/normalize.css";
+@import "../bower_components/typeplate-starter-kit/css/typeplate.css";
+
+/**
+ * BOX-SIZING
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/**
+ * GRIDS
+ */
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    > * {
+        flex: 1;
+        flex-basis: 100%;
+    }
+}
+
+@define-mixin grid_r $col, $width {
+    @media only screen and (min-width: $(width)px) {
+        .grid-$(col)-$(width) {
+            & > * {
+                flex-basis: calc(100 / $col)%;
+            }
+            @mixin-content;
+        }
+    }
+}
+
+@define-mixin grid $col {
+    .grid-$(col) {
+        & > * {
+            flex-basis: calc(100 / $col)%;
+        }
+        @mixin-content;
+    }
+}
+
+@mixin grid 2 {}
+@mixin grid 4 {}
+@mixin grid 6 {}
+
+@mixin grid_r 2, 400 {}
+@mixin grid_r 2, 800 {}
+
+@mixin grid_r 4, 400 {}
+@mixin grid_r 4, 800 {}
+
+/**
+ * PACE (automatic pre-loader thingy)
+ */
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+    transition: all 1s ease;
+    .pace-progress {
+        background: #2299dd;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+        transition: all 1s ease;
+    }
+}
+
+.pace-inactive {
+    opacity: 0;
+}
+
+.pace-active {
+    opacity: 1;
+}
+/**
+ * GENERAL
+ */
+
+img {
+    max-width: 100%;
+}
+/**
+ * YOUR CODE HERE
+ */
